@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import CDIForm from "./components/CDIForm";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <h1>oi</h1>
-  )
+    <div>
+      <h1>Porquinho do CDI</h1>
+      <CDIForm/>
+    </div>
+  );
 }
 
 export default App
