@@ -3,6 +3,7 @@ import { getCDI } from '../services/cdiService';
 
 export default function CDIForm() {
     const [valor, setValor] = useState('');
+    const [dias, setDias] = useState('');
     const [resultado, setResultado] = useState(null);
     const [cdi, setCDI] = useState(null);
 
@@ -12,16 +13,14 @@ export default function CDIForm() {
 
     function calcularEstimativa(e) {
         e.preventDefault();
-        if (!cdi || !valor) return;
+        if (!cdi || !valor || !dias) return;
 
         const cdiDiario = Math.pow(1 + cdi / 100, 1 / 252) - 1;
-        const valorAmanha = valor * (1 + cdiDiario);
-        const valor30Dias = valor * Math.pow(1 + cdiDiario, 30);
+        const valorFinal = valor * Math.pow(1 + cdiDiario, dias);
 
-    setResultado({
-        amanha: valorAmanha.toFixed(2),
-        trintaDias: valor30Dias.toFixed(2),
-    });
+        setResultado({
+            valorFinal: valorFinal.toFixed(2),
+        });
     }
 
     return (
@@ -34,14 +33,21 @@ export default function CDIForm() {
                 value={valor}
                 onChange={e => setValor(Number(e.target.value))}
                 />
+
+                <input
+                type='number'
+                placeholder='Quantidade de dias'
+                value={dias}
+                onChange={e => setDias(Number(e.target.value))}
+                min='1'
+                />
                 <button type="submit">Calcular</button>
             </form>
 
             {resultado && (
                 <div>
                     <p>CDI atual: {cdi}%</p>
-                    <p>Valor amanhã: R$ {resultado.amanha}</p>
-                    <p>Valor em 30 dias: R$ {resultado.trintaDias}</p>
+                    <p>Valor após {dias} dias: R$ {resultado.valorFinal}</p>
                 </div>
             )}
         </div>
