@@ -25,7 +25,7 @@ export default function CDIForm() {
     }
 
     return (
-        <div>
+        <div class="">
             <h2>Simule seu rendimento com CDI</h2>
             <form onSubmit={calcularEstimativa}>
                 <input
