@@ -24,28 +24,33 @@ export default function CDIForm() {
     }
 
     return (
-        <div class="">
-            <h2>Simule seu rendimento com CDI</h2>
-            <form onSubmit={calcularEstimativa}>
-                <input
-                type="number"
-                placeholder="Valor em R$"
-                value={valor}
-                onChange={e => setValor(Number(e.target.value))}
-                />
-
-                <input
-                type='number'
-                placeholder='Quantidade de dias'
-                value={dias}
-                onChange={e => setDias(Number(e.target.value))}
-                min='1'
-                />
-                <button type="submit">Calcular</button>
+        <div>
+            <h4 className="mb-4">Simule seu rendimento com CDI</h4>
+            <form onSubmit={calcularEstimativa} className="w-100" style={{maxWidth: 400}}>
+                <div className="mb-4">
+                    <input
+                        type="number"
+                        className="form-control"
+                        placeholder="Valor em R$"
+                        value={valor}
+                        onChange={e => setValor(Number(e.target.value))}
+                    />
+                </div>
+                <div className="mb-3">
+                    <input
+                        type="number"
+                        className="form-control"
+                        placeholder="Quantidade de dias"
+                        value={dias}
+                        onChange={e => setDias(Number(e.target.value))}
+                        min="1"
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary w-100">Calcular</button>
             </form>
 
             {resultado && (
-                <div>
+                <div className="mt-4">
                     <p>CDI atual: {cdi}%</p>
                     <p>Valor após {dias} dias: R$ {resultado.valorFinal}</p>
                 </div>
