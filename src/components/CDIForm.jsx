@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getCDI } from '../services/cdiService';
 
-export default function CDIForm() {
+export default function CDIForm({ onCalculate }) {
     const [valor, setValor] = useState('');
     const [dias, setDias] = useState('');
     const [resultado, setResultado] = useState(null);
@@ -11,22 +11,27 @@ export default function CDIForm() {
         getCDI().then(taxa => setCDI(taxa));
     }, []);
 
-    function calcularEstimativa(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (!cdi || !valor || !dias) return;
 
         const cdiDiario = Math.pow(1 + cdi / 100, 1 / 252) - 1;
         const valorFinal = valor * Math.pow(1 + cdiDiario, dias);
 
-        setResultado({
+        const dadosCalculados = {
+            cdi,
+            dias,
             valorFinal: valorFinal.toFixed(2),
-        });
-    }
+        };
+
+        setResultado(dadosCalculados);
+        onCalculate(dadosCalculados);
+    };
 
     return (
         <div>
             <h4 className="mb-4">Simule seu rendimento com CDI</h4>
-            <form onSubmit={calcularEstimativa} className="w-100" style={{maxWidth: 400}}>
+            <form onSubmit={handleSubmit} className="w-100" style={{maxWidth: 400}}>
                 <div className="mb-4">
                     <input
                         type="number"
