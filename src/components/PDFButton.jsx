@@ -26,7 +26,7 @@ const PDFButton = ({ formData }) => {
     };
 
     return (
-        <button onClick={generatePDF}>
+        <button onClick={generatePDF} className='btn btn-primary w-100"'>
             Gerar PDF
         </button>
     );
