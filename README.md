@@ -1,4 +1,6 @@
-### O CDIPlanner é uma aplicação web para simulação de rendimentos com base na taxa CDI, obtida via API REST.
+# CDIPlanner
+
+### Uma aplicação web para simulação de rendimentos com base na taxa CDI, obtida via API REST.
 
 #### Tecnologias:
 
