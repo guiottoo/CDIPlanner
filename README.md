@@ -1,6 +1,8 @@
-<h2>Hi! I'm Gui Otto</h2>
+<h2>Hi! I'm Gui Otto 👋</h2>
 
 <i>making lives easier through technology.</i>
+
+> CDIPlanner — a tool to plan and track CDI investments.
 
 ##### SKILLS
 
