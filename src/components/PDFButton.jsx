@@ -13,8 +13,16 @@ const PDFButton = ({ formData }) => {
         doc.setFontSize(12);
         doc.text('Dados do formulário:', 14, 32);
 
+        const labels = {
+            cdi: 'Taxa CDI (%)',
+            valorInicial: 'Valor Inicial (R$)',
+            dias: 'Período (dias)',
+            valorFinal: 'Valor Final (R$)',
+            rendimento: 'Rendimento (R$)',
+        };
+
         const tableColumn = ["Campo", "Valor"];
-        const tableRows = Object.entries(formData).map(([key, value]) => [key, String(value)]);
+        const tableRows = Object.entries(formData).map(([key, value]) => [labels[key] || key, String(value)]);
 
         autoTable(doc, {
             head: [tableColumn],

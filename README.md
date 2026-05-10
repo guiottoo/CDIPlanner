@@ -14,5 +14,6 @@
 - Simulação de rendimento informando valor e prazo
 - Exibição do resultado da simulação
 - Geração de relatório em PDF
+- Interface responsiva e amigável
 
 ![Minha imagem](public/assets/CDIPlanner.png)

@@ -18,10 +18,14 @@ export default function CDIForm({ onCalculate }) {
         const cdiDiario = Math.pow(1 + cdi / 100, 1 / 252) - 1;
         const valorFinal = valor * Math.pow(1 + cdiDiario, dias);
 
+        const rendimento = valorFinal - valor;
+
         const dadosCalculados = {
             cdi,
+            valorInicial: Number(valor).toFixed(2),
             dias,
             valorFinal: valorFinal.toFixed(2),
+            rendimento: rendimento.toFixed(2),
         };
 
         setResultado(dadosCalculados);
@@ -57,7 +61,9 @@ export default function CDIForm({ onCalculate }) {
             {resultado && (
                 <div className="mt-4">
                     <p>CDI atual: {cdi}%</p>
+                    <p>Valor inicial: R$ {resultado.valorInicial}</p>
                     <p>Valor após {dias} dias: R$ {resultado.valorFinal}</p>
+                    <p><strong>Rendimento: R$ {resultado.rendimento}</strong></p>
                 </div>
             )}
         </div>
