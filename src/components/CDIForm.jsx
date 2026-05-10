@@ -6,9 +6,13 @@ export default function CDIForm({ onCalculate }) {
     const [dias, setDias] = useState('');
     const [resultado, setResultado] = useState(null);
     const [cdi, setCDI] = useState(null);
+    const [loadingCDI, setLoadingCDI] = useState(true);
 
     useEffect(() => {
-        getCDI().then(taxa => setCDI(taxa));
+        getCDI().then(taxa => {
+            setCDI(taxa);
+            setLoadingCDI(false);
+        });
     }, []);
 
     const handleSubmit = (e) => {
@@ -51,7 +55,9 @@ export default function CDIForm({ onCalculate }) {
                         min="1"
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-100">Calcular</button>
+                <button type="submit" className="btn btn-primary w-100" disabled={loadingCDI}>
+                    {loadingCDI ? 'Carregando CDI...' : 'Calcular'}
+                </button>
             </form>
 
             {resultado && (

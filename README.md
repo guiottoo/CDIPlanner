@@ -10,9 +10,9 @@
 
 #### Funcionalidades:
 
-- Consulta da taxa CDI via API REST
-- Simulação de rendimento informando valor e prazo
-- Exibição do resultado da simulação
+- Consulta das taxa CDI via API REST
+- Simulação de ddsrendimento informando valor e prazo
+- Exibição dsadsado resultado da simulação
 - Geração de relatório em PDF
 
 ![Minha imagem](public/assets/CDIPlanner.png)
