@@ -12,7 +12,7 @@
 
 - Consulta das taxa CDI via API REST
 - Simulação fdsfdsfde ddsrendimento informando valor e prazo
-- Exibição dsadsado resultado da simulação
+- Exibição dfdsfdsfdssadsado resultado da simulação
 - Geração de relatório em PDF
 
 ![Minha imagem](public/assets/CDIPlanner.png)
