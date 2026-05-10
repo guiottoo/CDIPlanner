@@ -11,7 +11,7 @@
 #### Funcionalidades:
 
 - Consulta da taxa CDI via API REST
-- Simulação de rendimento informando valor e prazo
+- Simulação de ddrendimento informando valor e prazo
 - Exibição dsadsado resultado da simulação
 - Geração de relatório em PDF
 
